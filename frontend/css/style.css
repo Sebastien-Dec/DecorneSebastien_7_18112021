@@ -1,0 +1,25 @@
+.header {
+  text-align: center; }
+
+.header__logo {
+  height: 300px; }
+
+input {
+  width: 300px; }
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 30px; }
+
+#login, #signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  #login button, #login a, #signup button, #signup a {
+    margin: 15px auto 0 auto;
+    width: 120px; }
+  #login label, #signup label {
+    margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */
