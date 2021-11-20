@@ -16,6 +16,16 @@ h1 {
     margin-bottom: 30px;
 }
 
+.status {
+    margin-top: 15px;
+    > input {
+        width: auto;
+    }
+    > label {
+        margin: 0 10px !important;
+    }
+}
+
 #login, #signup {
     display: flex;
     flex-direction: column;

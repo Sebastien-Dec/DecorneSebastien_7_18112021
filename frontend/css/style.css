@@ -12,6 +12,13 @@ h1 {
   text-align: center;
   margin-bottom: 30px; }
 
+.status {
+  margin-top: 15px; }
+  .status > input {
+    width: auto; }
+  .status > label {
+    margin: 0 10px !important; }
+
 #login, #signup {
   display: flex;
   flex-direction: column;
