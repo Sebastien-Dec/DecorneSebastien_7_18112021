@@ -1,6 +1,6 @@
 // Importing framewoks
 const express = require('express');
-const mysql = require('@mysql/xdevapi');
+const sequelize = require('sequelize');
 
 const app = express();
 
@@ -12,13 +12,7 @@ app.use((req, res, next) => {
     next();
 })
 
-// Connection to MySQL
-/*const mySession = mysql.getSession( {
-    host: 'localhost',
-    port: 3306,
-    user: 'user',
-    password: 'password'
-});*/
+
 
 
 
