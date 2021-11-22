@@ -1,8 +1,11 @@
 // Importing framewoks
 const express = require('express');
+const helmet = require('helmet');
 const sequelize = require('sequelize');
 
 const app = express();
+
+app.use(helmet());
 
 // CORS Management
 app.use((req, res, next) => {
