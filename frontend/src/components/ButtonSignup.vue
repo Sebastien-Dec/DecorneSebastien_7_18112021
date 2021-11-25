@@ -3,9 +3,12 @@
 </template>
 
 <style lang="scss" scoped>
-#login {
-    background-color: grey;
+#signup {
+    background-color: whitesmoke;
     border-radius: 5px;
+    border-color: transparent;
+    margin: 0 10px;
+    width: 95px;
 }
 </style>
 
