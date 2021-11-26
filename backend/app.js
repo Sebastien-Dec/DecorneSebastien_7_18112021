@@ -1,7 +1,7 @@
 // Importing framewoks
 const express = require('express');
 const helmet = require('helmet');
-const sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
 const app = express();
 
@@ -15,7 +15,10 @@ app.use((req, res, next) => {
     next();
 })
 
-
+const sequelize = new Sequelize('database', 'username', 'password', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
 
 
 
