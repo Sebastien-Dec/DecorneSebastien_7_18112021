@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link to="">
+        <router-link to="/newpost">
             <button id="new-post">Nouvelle Publication</button>
         </router-link>
     </div>
