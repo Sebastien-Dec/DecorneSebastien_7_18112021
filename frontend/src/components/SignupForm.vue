@@ -15,7 +15,7 @@
                 <label for="employee">Salarié</label>
                 <input type="radio" id="employee" name="type" />
                 <label for="moderator">Modérateur</label>
-                <input type="radio" name="type" id="moderator" />
+                <input type="radio" id="moderator" name="type" />
             </div>
             <button>Créer mon compte</button>
         </form>
