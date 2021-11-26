@@ -9,6 +9,7 @@
     border-color: transparent;
     margin: 0 10px;
     width: 95px;
+    font-weight: bold;
 }
 </style>
 
