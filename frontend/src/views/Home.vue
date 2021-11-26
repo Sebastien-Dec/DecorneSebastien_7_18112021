@@ -1,22 +1,40 @@
 <template>
   <div class="home">
-    <ConnectionBar />
-    <LoginForm />
-
+    <img src="../assets/icon-above-font.png" alt="Logo Groupomania">
+    <div class="button">
+      <ButtonLogin />
+      <ButtonSignup />
+    </div>
+    
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import ConnectionBar from '../components/ConnectionBar.vue'
-import LoginForm from '../components/LoginForm.vue'
+import ButtonLogin from '../components/ButtonLogin.vue'
+import ButtonSignup from '../components/ButtonSignup.vue'
 
 export default {
   name: 'Home',
   components: {
-    ConnectionBar,
-    LoginForm
-    
+    ButtonLogin,
+    ButtonSignup
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 300px;
+  }
+}
+
+.button {
+  display: flex;
+}
+</style>

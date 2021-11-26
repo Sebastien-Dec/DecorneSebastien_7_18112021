@@ -1,9 +1,9 @@
 <template>
     <div class='header-logo'>
-        <a href="../views/home">
+        <router-link to="/">
             <img src="../assets/icon.png" class='logo' alt="Logo Groupomania">
             <span class='text-logo'>Groupomania</span>
-        </a>
+        </router-link>
     </div>
 </template>
 
@@ -12,6 +12,7 @@ $colorLogo: #fd2d01;
 
 .header-logo {
     text-align: center;
+    margin-right: 30px;
 }
 
 .logo {

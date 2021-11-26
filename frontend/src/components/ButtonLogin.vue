@@ -1,7 +1,7 @@
 <template>
-    <a href="../views/Login.vue ">
+    <router-link to="/login">
         <button id="login">Se Connecter</button>
-    </a>
+    </router-link>
 </template>
 
 <style lang="scss" scoped>

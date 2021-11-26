@@ -1,8 +1,7 @@
 <template>
-    <a href="../views/Signup.vue">
+    <router-link to="/signup">
         <button id="signup">S'inscrire</button>
-    </a>
-    
+    </router-link>
 </template>
 
 <style lang="scss" scoped>
