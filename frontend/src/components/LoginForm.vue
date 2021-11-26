@@ -44,6 +44,7 @@ form {
         color: whitesmoke;
         font-weight: bold;
         font-size: 1.2rem;
+        height: 40px;
     }
 }
 
