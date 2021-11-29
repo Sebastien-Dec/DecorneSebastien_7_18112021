@@ -1,19 +1,16 @@
 <template>
     <div>
-        <ConnectedBar />
-        <NewPost />
+        <h1>Ajouter une publication</h1>
+        <label for="title">Titre de la publication</label>
+        <input type="text" id="title" name="title" placeholder="Titre de votre publication" />
+        <label for="gifUrl">Lien URL du Gif</label>
+        <input type="link" id="gifUrl" name="gifUrl" placeholder="https://www.gif.com" />
+        <button>Ajouter une publication</button>
     </div>
 </template>
 
 <script>
-import ConnectedBar from '../components/ConnectedBar.vue'
-import NewPost from '../components/NewPostForm.vue'
-
 export default {
-    name:'NewPost',
-    components: {
-        ConnectedBar,
-        NewPost
-    }    
+    name:'NewPost', 
 }
 </script>

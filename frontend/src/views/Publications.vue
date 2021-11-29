@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import ImageUser from './ImageUser.vue'
+import ImageUser from '../components/ImageUser.vue'
 
 export default {
-    name: 'Publication',
-    components: {
-        ImageUser,
-    }    
+    name: 'Publications',
+    component:  {
+        ImageUser
+    }
 }
 </script>

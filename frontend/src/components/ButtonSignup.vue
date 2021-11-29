@@ -1,4 +1,4 @@
-<!--<template>
+<template>
     <router-link to="/signup">
         <button id="signup">S'inscrire</button>
     </router-link>
@@ -20,4 +20,4 @@
 export default {
     name: 'ButtonSignup',
 }
-</script>-->
+</script>
