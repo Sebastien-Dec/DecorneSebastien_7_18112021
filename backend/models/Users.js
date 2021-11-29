@@ -23,7 +23,10 @@ const User = sequelize.define('User', {
 
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            is: /^[0-9a-zA-Z!/?$£%&]$/i
+        }
     },
 
     type: {

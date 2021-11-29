@@ -13,6 +13,5 @@ export default {
   components: {
     Header
   }
-  
 }
 </script>
