@@ -2,23 +2,21 @@
   <div class="home">
     <img src="../assets/icon-above-font.png" alt="Logo Groupomania">
     <div class="button">
-      <ButtonLogin />
-      <ButtonSignup />
+      <router-link to="/login">
+        <button id="login">Se Connecter</button>
+      </router-link>
+      <router-link to="/signup">
+        <button id="signup">S'inscrire</button>
+      </router-link>
     </div>
     
   </div>
 </template>
 
 <script>
-import ButtonLogin from '../components/ButtonLogin.vue'
-import ButtonSignup from '../components/ButtonSignup.vue'
 
 export default {
   name: 'Home',
-  components: {
-    ButtonLogin,
-    ButtonSignup
-  }
 }
 </script>
 
@@ -36,5 +34,27 @@ export default {
 
 .button {
   display: flex;
+}
+
+$colorLogin: #FF3D1D;
+#login {
+    background-color: $colorLogin;
+    border-radius: 5px;
+    border-color: transparent;
+    margin: 0 10px;
+    width: 100px;
+    height: 40px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+#signup {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-color: transparent;
+    margin: 0 10px;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
 }
 </style>

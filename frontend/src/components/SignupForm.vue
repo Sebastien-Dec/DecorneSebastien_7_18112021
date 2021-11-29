@@ -12,10 +12,10 @@
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Votre mot de passe" />
             <div class="type">
                 <p>Qui êtes-vous ?</p>
-                <label for="employee">Salarié</label>
                 <input type="radio" id="employee" name="type" />
-                <label for="moderator">Modérateur</label>
+                <label for="employee">Salarié</label>
                 <input type="radio" id="moderator" name="type" />
+                <label for="moderator">Modérateur</label>
             </div>
             <button>Créer mon compte</button>
         </form>

@@ -1,5 +1,5 @@
 const Sequelize, DataTypes = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory');
+const sequelize = new Sequelize('mysql::memory');
 
 const User = sequelize.define('User', {
     id: {
@@ -9,7 +9,7 @@ const User = sequelize.define('User', {
         primaryKey: true
     },
 
-    userName: {
+    username: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
