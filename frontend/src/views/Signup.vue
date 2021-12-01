@@ -30,14 +30,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$colorText: #FF3D1D;
+
 #signup {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     
     h1 {
         text-align: center;
-        color: #FF3D1D;
+        color: $colorText;
     }
 }
 
@@ -58,7 +59,7 @@ form {
     }
 
     button {
-        background-color: #FF3D1D;
+        background-color: $colorText;
         border-radius: 5px;
         border-color: transparent;
         margin: 20px 5px;

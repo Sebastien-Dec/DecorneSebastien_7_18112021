@@ -1,20 +1,22 @@
 <template>
     <div>
         <router-link to="/newpost">
-            <button id="new-post">Nouvelle Publication</button>
+            <button id="new-post">{{ text }}</button>
         </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ButtonNewPost'
+    name: 'ButtonNewPost',
+    props: ['text']
 }
 </script>
 
 <style lang="scss" scoped>
 #new-post {
-    background-color: whitesmoke;
+    background-color: #FF3D1D;
+    color: whitesmoke;
     border-radius: 5px;
     border-color: transparent;
     margin: 0 10px;

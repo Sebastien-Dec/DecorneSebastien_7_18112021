@@ -8,7 +8,7 @@
         <nav class='navbar' id="connectedBar" >
             <HeaderLogo />
             <ImageUser />
-            <ButtonNewPost />
+            <ButtonNewPost text="Nouvelle Publication" style="background-color= 'whitesmoke'" />
         </nav>
     </header>
 </template>

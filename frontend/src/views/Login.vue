@@ -18,15 +18,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-    h1 {
-        text-align: center;
-        color: #FF3D1D;
-    }
+$colorText: #FF3D1D;
+h1 {
+    text-align: center;
+    color: $colorText;
 }
 
 form {
@@ -37,7 +32,7 @@ form {
     padding: 10px;
 
     button {
-        background-color: #FF3D1D;
+        background-color: $colorText;
         border-radius: 5px;
         border-color: transparent;
         margin: 10px 5px;
