@@ -1,60 +1,42 @@
 <template>
-  <div class="home">
-    <img src="../assets/icon-above-font.png" alt="Logo Groupomania">
-    <div class="button">
-      <router-link to="/login">
-        <button id="login">Se Connecter</button>
-      </router-link>
-      <router-link to="/signup">
-        <button id="signup">S'inscrire</button>
-      </router-link>
+    <div>
+        <section id="userId">
+            <ImageUser />
+            <h1>{{ user.username }}</h1>
+            <h2>{{ user.createdAt }}</h2>
+        </section>
+        <section id="publication">
+            <span>{{ title }}</span>
+            <span>{{ gif }}</span>
+            <span>{{ text}}</span>
+        </section>
+        <section id="comments">
+            <span>{{ numberOfComments }} commentaires</span>
+        </section>
     </div>
-    
-  </div>
 </template>
 
 <script>
+import ImageUser from '../components/ImageUser.vue'
 
 export default {
-  name: 'Home',
+    name: 'Home',
+    component:  {
+        ImageUser,
+    },
+    data() { 
+        return {
+            user: {
+                id: '0',
+                username: 'sebastien',
+                email: 'sebastien@decorne.com',
+                password: 'sebastien',
+                type: 'moderator',
+                state: 'actif',
+                createdAt: '02/12/2021 11:25',
+                updatedAt: '02/12/2021 11:25'
+            }
+        }   
+    }
 }
 </script>
-
-
-<style lang="scss" scoped>
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img {
-    width: 300px;
-  }
-}
-
-.button {
-  display: flex;
-}
-
-$colorLogin: #FF3D1D;
-#login {
-    background-color: $colorLogin;
-    border-radius: 5px;
-    border-color: transparent;
-    margin: 0 10px;
-    width: 100px;
-    height: 40px;
-    color: whitesmoke;
-    font-weight: bold;
-}
-
-#signup {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    border-color: transparent;
-    margin: 0 10px;
-    width: 100px;
-    height: 40px;
-    font-weight: bold;
-}
-</style>
