@@ -1,9 +1,12 @@
 <template>
-    <div>
+    <div id='home'>
         <section id="userId">
             <ImageUser />
-            <h1>{{ user.username }}</h1>
-            <h2>{{ user.createdAt }}</h2>
+            <div class="id">
+                <h1>{{ user.username }}</h1>
+                <h2>{{ user.createdAt }}</h2>
+            </div>
+            
         </section>
         <section id="publication">
             <span>{{ title }}</span>
@@ -21,7 +24,7 @@ import ImageUser from '../components/ImageUser.vue'
 
 export default {
     name: 'Home',
-    component:  {
+    components:  {
         ImageUser,
     },
     data() { 
@@ -40,3 +43,30 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+#home {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px auto;
+}
+#userId {
+    display: flex;
+    align-items: center;  
+}
+
+.id {
+    margin-left: 10px;
+
+    h1 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 0.5rem;
+        margin: 0;
+    }
+}
+</style>

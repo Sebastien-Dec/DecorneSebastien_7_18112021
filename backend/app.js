@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     next();
 })
 
-const sequelize = new Sequelize('groupomania', 'root', 'Marilyne131180!/', {
+const sequelize = new Sequelize('groupomania', 'moderator', 'moderator', {
     host: 'localhost',
     dialect: 'mysql'
 });

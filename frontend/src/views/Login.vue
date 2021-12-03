@@ -19,6 +19,10 @@ export default {
 
 <style lang="scss" scoped>
 $colorText: #FF3D1D;
+#login {
+    margin-top: 100px;
+}
+
 h1 {
     text-align: center;
     color: $colorText;

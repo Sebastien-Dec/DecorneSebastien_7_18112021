@@ -34,5 +34,6 @@ img {
     border-radius: 100%;
     width: 40px;
     height: 40px;
+    background-color: whitesmoke;
 }
 </style>

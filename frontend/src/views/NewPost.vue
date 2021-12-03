@@ -1,5 +1,5 @@
 <template>
-    <div class="new-post">
+    <div id="new-post">
         <form>
             <h1>Ajouter une publication</h1>
             <label for="title">Titre de la publication</label>
@@ -27,10 +27,8 @@ export default {
 
 <style lang="scss" scoped>
 $colorText: #FF3D1D;
-.new-post {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#new-post {
+    margin-top: 50px;
 }
 
 h1 {

@@ -33,8 +33,7 @@ export default {
 $colorText: #FF3D1D;
 
 #signup {
-    display: flex;
-    flex-direction: column;
+    margin-top: 100px;
     
     h1 {
         text-align: center;
