@@ -1,11 +1,11 @@
 <template>
     <div>
-        <user v-if="user.type === 'employee'">
+        <div v-if="users.type === 'employee'">
             <img src="../assets/icon.png" alt="Photo de l'utilisateur" />
-        </user>
-        <user v-else-if="user.type === 'moderator'">
+        </div>
+        <div v-else-if="users.type === 'moderator'">
              <img src="../assets/admin.png" alt="Photo du modérateur" />
-        </user>
+        </div>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
     name: 'ImageUser',
     data() { 
         return {
-            user: {
+            users: {
                 id: '0',
                 username: 'sebastien',
                 email: 'sebastien@decorne.com',
@@ -23,7 +23,7 @@ export default {
                 state: 'actif',
                 createdAt: '02/12/2021 11:25',
                 updatedAt: '02/12/2021 11:25'
-            }
+            },
         }   
     }
 }
