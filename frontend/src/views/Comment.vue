@@ -1,10 +1,10 @@
 <template>
     <div id="comment">
+        <p>{{ commentOfAnUser }}</p>
         <div class="user">
             <ImageUser />
             <h1>{{ user.username }}</h1>
         </div>
-        <p>{{ commentOfAnUser }}</p>
         <input type="text" id="comment" name="comment" placeholder="Votre commentaire" />
         <button>Poster</button>
     </div>
@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$colorButton: #FF3D1D;
 #comment {
     display: flex;
     flex-direction: column;
@@ -45,8 +46,7 @@ export default {
 
 .user {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.5rem;
 
     h1 {
         margin-left: 10px;
@@ -55,7 +55,7 @@ export default {
 
 button {
     margin: 10px auto;
-    background-color: #FF3D1D;
+    background-color: $colorButton;
     color: whitesmoke;
     border-radius: 5px;
     border-color: transparent;
@@ -63,5 +63,8 @@ button {
     height: 40px;
     font-weight: bold;
 
+    &:hover {
+        background-color: darken($colorButton, 10%);
+    }
 }
 </style>

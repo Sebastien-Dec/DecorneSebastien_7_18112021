@@ -15,6 +15,10 @@ $colorLogin: #FF3D1D;
     height: 40px;
     color: whitesmoke;
     font-weight: bold;
+
+    &:hover {
+        background-color: darken($colorLogin, 10%);
+    }
 }
 </style>
 

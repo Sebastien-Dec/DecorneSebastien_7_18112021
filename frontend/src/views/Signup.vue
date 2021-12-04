@@ -66,6 +66,10 @@ form {
         font-weight: bold;
         font-size: 1.2rem;
         height: 40px;
+
+        &:hover {
+        background-color: darken($colorText, 10%);
+        }
     }
 }
 

@@ -14,8 +14,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$colorNewPost: #FF3D1D;
 #new-post {
-    background-color: #FF3D1D;
+    background-color: $colorNewPost;
     color: whitesmoke;
     border-radius: 5px;
     border-color: transparent;
@@ -23,5 +24,10 @@ export default {
     width: 100px;
     height: 40px;
     font-weight: bold;
+
+    &:hover {
+        background-color: darken($colorNewPost, 10%);
+
+    }
 }
 </style>

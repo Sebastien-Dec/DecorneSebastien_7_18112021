@@ -11,7 +11,10 @@
             <h1>{{ user.title }}</h1>
             <img :src="user.gifUrl" alt="Gif de la publication">
             <p>{{ user.text }}</p>
-            <p class="comment">{{ numberOfComments }} commentaires</p>
+            <div class="comment">
+                <button>{{ numberOfComments }} commentaires</button>
+            </div>
+            
         </section>
     </div>
 </template>
@@ -60,6 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$colorHome: whitesmoke;
 #home {
     display: flex;
     flex-direction: column;
@@ -71,7 +75,7 @@ export default {
     flex-direction: column;
     width: 300px; 
     margin: 25px 0;
-    border: solid whitesmoke;
+    border: solid $colorHome;
     border-radius: 10px;
 
     h1 {
@@ -83,7 +87,7 @@ export default {
 .id {
     display: flex;
     align-items: center;
-    border-bottom: solid whitesmoke;
+    border-bottom: solid $colorHome;
     padding: 5px 0 0 5px;
 
     &__margin-left {
@@ -102,7 +106,16 @@ export default {
 }
 
 .comment {
-    border-top:solid whitesmoke;
-    padding-top: 15px;
+    border-top: solid $colorHome;
+    button {
+        margin: 10px;
+        border: solid $colorHome;
+        border-radius: 5px;
+        background-color: $colorHome;
+
+        &:hover {
+            background-color: darken($colorHome, 10%);
+        }
+    }
 }
 </style>
