@@ -17,6 +17,7 @@ $colorSignup: whitesmoke;
 
     &:hover {
         background-color: darken($colorSignup, 10%);
+        cursor: pointer;
     }
 }
 </style>

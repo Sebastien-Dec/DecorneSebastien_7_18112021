@@ -12,7 +12,11 @@
             <img :src="user.gifUrl" alt="Gif de la publication">
             <p>{{ user.text }}</p>
             <div class="comment">
-                <button>{{ numberOfComments }} commentaires</button>
+                <modale v-bind:revele="revele" v-bind:toggleModale="toggleModale"></modale>
+                <div>
+                    <button v-on:click="toggleModale">{{ numberOfComments }} commentaires</button>
+                </div>
+                
             </div>
             
         </section>
@@ -21,11 +25,13 @@
 
 <script>
 import ImageUser from '../components/ImageUser.vue'
+import Modale from '../components/Modale.vue'
 
 export default {
     name: 'Home',
     components:  {
         ImageUser,
+        'modale' : Modale
     },
     data() { 
         return {
@@ -57,6 +63,12 @@ export default {
                 gifUrl: 'https://media.giphy.com/media/rhnSEJmB9NO42ykQYz/giphy.gif',
                 text: 'Non il est super'
             }],
+            revele: false
+        }
+    },
+    methods: {
+        toggleModale: function() {
+            this.revele = !this.revele
         }
     }
 }
@@ -64,6 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 $colorHome: whitesmoke;
+
 #home {
     display: flex;
     flex-direction: column;
@@ -115,6 +128,7 @@ $colorHome: whitesmoke;
 
         &:hover {
             background-color: darken($colorHome, 10%);
+            cursor: pointer;
         }
     }
 }

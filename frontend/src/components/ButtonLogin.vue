@@ -18,6 +18,7 @@ $colorLogin: #FF3D1D;
 
     &:hover {
         background-color: darken($colorLogin, 10%);
+        cursor: pointer;
     }
 }
 </style>

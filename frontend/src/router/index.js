@@ -5,7 +5,6 @@ import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import NewPost from '../views/NewPost.vue'
 import Home from '../views/Home.vue'
-import Comment from '../views/Comment.vue'
 
 Vue.use(VueRouter)
 
@@ -34,13 +33,7 @@ const routes = [
     path:'/home',
     name: 'home',
     component: Home
-  },
-  {
-    path: '/comment',
-    name: 'comment',
-    component: Comment
   }
-  
 ]
 
 const router = new VueRouter({ routes })

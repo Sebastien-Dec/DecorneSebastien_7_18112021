@@ -28,6 +28,10 @@ $colorLogo: #fd2d01;
 a {
     text-decoration: none;
     display:flex;
+    
+    &:hover {
+        cursor: pointer;
+    }
 }
 </style>
 

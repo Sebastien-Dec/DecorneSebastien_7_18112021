@@ -69,6 +69,7 @@ form {
 
         &:hover {
         background-color: darken($colorText, 10%);
+        cursor: pointer;
         }
     }
 }

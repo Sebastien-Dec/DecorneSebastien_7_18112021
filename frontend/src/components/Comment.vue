@@ -1,6 +1,11 @@
 <template>
     <div id="comment">
-        <p>{{ commentOfAnUser }}</p>
+        <!--<div class="otherComment">
+            <ImageUser /> 
+            {{ user.username }}
+            {{ publication.createdAt }}
+            {{ comment.text }}
+        </div>-->
         <div class="user">
             <ImageUser />
             <h1>{{ user.username }}</h1>
@@ -11,7 +16,7 @@
 </template>
 
 <script>
-import ImageUser from '../components/ImageUser.vue'
+import ImageUser from './ImageUser.vue'
 
 export default {
     name: 'Comment',
@@ -37,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 $colorButton: #FF3D1D;
+
 #comment {
     display: flex;
     flex-direction: column;
@@ -65,6 +71,7 @@ button {
 
     &:hover {
         background-color: darken($colorButton, 10%);
+        cursor: pointer;
     }
 }
 </style>
