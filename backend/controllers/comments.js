@@ -6,7 +6,7 @@ exports.createComment = (req, res, next) => {
     const comment = Comment.build({
         ...commentObject
     });
-    await comment.save()
+    comment.save()
         .then(() => res.status(201).json({ message : 'Commentaire enregistré !'}))
         .catch(error => res.status(400).json({ error }));
 }
@@ -23,7 +23,7 @@ exports.modifyComment = (req, res, next) => {
 exports.deleteComment = (req, res, next) => {
     Comment.findOne({ _id: req.params.id })
         .then(comment => {
-            await Comment.destroy({ _id: req.params.id })
+            Comment.destroy({ _id: req.params.id })
                 .then(() => res.status(200).json({ message : 'Commentaire supprimé !'}))
                 .catch(error => res.status(400).json({ error }));
         })
@@ -31,7 +31,7 @@ exports.deleteComment = (req, res, next) => {
 }
 
 exports.getAllComment = (req, res, next) => {
-    await Comment.findAll()
+    Comment.findAll()
         .then(comments => res.status(200).json(comments))
         .catch(error => res.status(400).json({ error }));
 }

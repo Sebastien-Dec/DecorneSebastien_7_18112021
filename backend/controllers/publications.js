@@ -6,7 +6,7 @@ exports.createPublication = (req, res, next) => {
     const publication = Publication.build({
         ...publicationObject
     });
-    await publication.save()
+    publication.save()
         .then(() => res.status(201).json({ message : 'Publication enregistrée !'}))
         .catch(error => res.status(400).json({ error }));
 }
@@ -23,7 +23,7 @@ exports.modifyPublication = (req, res, next) => {
 exports.deletePublication = (req, res, next) => {
     Publication.findOne({ _id: req.params.id })
         .then(comment => {
-            await Publication.destroy({ _id: req.params.id })
+            Publication.destroy({ _id: req.params.id })
                 .then(() => res.status(200).json({ message : 'Publication supprimée !'}))
                 .catch(error => res.status(400).json({ error }));
         })
@@ -31,7 +31,7 @@ exports.deletePublication = (req, res, next) => {
 }
 
 exports.getAllPublication = (req, res, next) => {
-    await Publication.findAll()
+    Publication.findAll()
         .then(publications => res.status(200).json(publications))
         .catch(error => res.status(400).json({ error }));
 }
