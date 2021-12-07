@@ -38,6 +38,14 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING(100)
     }
 }, {
+    classMethods: {
+        associate: function(models) {
+            models.User.hasMany(models.Publication),
+            models.User.hasMany(models.Comment)
+        }
+    }
+}, 
+{
     sequelize,
     modelName: 'User'
 });

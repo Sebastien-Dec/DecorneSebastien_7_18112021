@@ -1,4 +1,4 @@
-const Comment = require('../models/Comments');
+const Comment = require('../models/comment');
 
 exports.createComment = (req, res, next) => {
     const commentObject = JSON.parse(req.body.comments);

@@ -1,4 +1,4 @@
-const Publication = require('../models/Publications');
+const Publication = require('../models/publication');
 
 exports.createPublication = (req, res, next) => {
     const publicationObject = JSON.parse(req.body.publications);
