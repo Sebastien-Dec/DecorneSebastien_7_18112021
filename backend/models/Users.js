@@ -10,19 +10,19 @@ const User = sequelize.define('User', {
     },
 
     username: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(60),
         allowNull: false,
         unique: true
     },
 
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false,
         unique: true
     },
 
     password: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(250),
         allowNull: false,
         validate: {
             is: /^[0-9a-zA-Z!/?$£%&]$/i
@@ -30,12 +30,12 @@ const User = sequelize.define('User', {
     },
 
     type: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(100),
         allowNull: false
     },
 
     state: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING(100)
     }
 }, {
     sequelize,

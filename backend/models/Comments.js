@@ -10,7 +10,18 @@ const Comment = sequelize.define('Comment', {
     },
 
     comment: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+
+    users_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+
+    publications_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 }, {
     sequelize,
