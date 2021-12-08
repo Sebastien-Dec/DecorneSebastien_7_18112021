@@ -1,12 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import NewPost from '../views/NewPost.vue'
-import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
+import Home from '../views/HomePublication.vue'
 
 const routes = [
   {
@@ -36,6 +33,9 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({ routes })
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes
+})
 
 export default router
