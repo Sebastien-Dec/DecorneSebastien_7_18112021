@@ -1,9 +1,6 @@
 <template>
     <div id='home'>
         <section id="userId" v-for="user in users" :key="user">
-            <!--<div>
-                <trumbowyg v-model="content" :config="config" class="form-control" name="content"></trumbowyg>
-            </div>-->
             <div class="id">
                 <ImageUser />
                 <div class="id__margin-left">
@@ -29,7 +26,7 @@
 <script>
 import ImageUser from '../components/ImageUser.vue'
 import Modale from '../components/Modale.vue'
-//import Trumbowyg from 'vue-trumbowyg';
+
 
 
 export default {
@@ -37,7 +34,6 @@ export default {
     components:  {
         ImageUser,
         'modale' : Modale,
-        //'trumbowyg': Trumbowyg
     },
     data() { 
         return {

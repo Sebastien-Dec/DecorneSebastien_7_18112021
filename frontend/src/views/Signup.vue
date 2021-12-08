@@ -17,15 +17,25 @@
                 <input type="radio" id="moderator" name="type" />
                 <label for="moderator">Modérateur</label>
             </div>
-            <button>Créer mon compte</button>
+            <button @click="createUser()">Créer mon compte</button>
         </form>
         <router-link to="/login" class="link-login">J'ai déjà un compte !</router-link>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name:'Signup',
+    methods: {
+        createUser() {
+            axios.post('http://localhost:8080/api/signup')
+                .then(response => {
+                    console.log(response);
+                })
+        }
+    }
 }
 </script>
 
@@ -42,7 +52,8 @@ $colorText: #FF3D1D;
 }
 
 .link-login {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 form {

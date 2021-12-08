@@ -9,6 +9,7 @@
             <HeaderLogo />
             <ImageUser />
             <ButtonNewPost text="Nouvelle Publication" />
+            <ButtonLogout />
         </nav>
     </header>
 </template>
@@ -19,6 +20,7 @@ import ButtonLogin from './ButtonLogin.vue'
 import ButtonSignup from './ButtonSignup.vue'
 import ButtonNewPost from './ButtonNewPost.vue'
 import ImageUser from './ImageUser.vue'
+import ButtonLogout from './ButtonLogout.vue'
 
 export default {
     name: 'Header',
@@ -27,7 +29,8 @@ export default {
       ButtonLogin,
       ButtonSignup,
       ButtonNewPost,
-      ImageUser
+      ImageUser,
+      ButtonLogout
     }
 }
 </script>

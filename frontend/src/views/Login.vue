@@ -6,14 +6,26 @@
             <input type="email" id="email" class="margin-form" name="email" placeholder="exemple@groupomania.fr">
             <label for="password" class="margin-form">Mot de passe</label>
             <input type="password" id="password" class="margin-form" name="password" placeholder="Mon mot de passe">
-            <button type="submit">Connexion</button>
+            <button @click="loginUser()">Connexion</button>
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'Login',
+    methods: {
+        loginUser() {
+            axios.post('api/login')
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.log(error));
+            
+        }
+    }
 }
 </script>
 
