@@ -7,14 +7,14 @@ exports.signup = (req, res, next) => {
     // Password Hash
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
-            const user = new User({
+            const user = {
                 username: req.body.username,
                 email: req.body.email,
                 password: hash,
-                confirmPassword: req.body.password,
-                type: req.bode.type
-            });
-            user.save()
+                emplyee: req.body.employee,
+                moderator: req.body.moderator
+            };
+            User.create(user)
                 .then(() => res.satus(201).json({ messsage: 'Utilisateur créé !' }))
                 .catch(error => res.status(400).json({ error }));
         })
@@ -23,7 +23,7 @@ exports.signup = (req, res, next) => {
 
 // User identification
 exports.login = (req, res, next) => {
-    User.findOne({ email: req.body.email})
+    User.findOne({ where: { email: req.body.email }})
         .then(user => {
             if (!user) {
                 return res.status(401).json({ error : 'Utilisateur non trouvé !' });

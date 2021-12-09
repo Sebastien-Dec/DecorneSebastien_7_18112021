@@ -54,3 +54,4 @@ const Comment = sequelize.define('Comment', {
 });
 
 console.log(Comment === sequelize.models.Comment);
+module.exports = sequelize.models.Comment;

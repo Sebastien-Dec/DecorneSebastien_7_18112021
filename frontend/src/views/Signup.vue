@@ -3,21 +3,19 @@
         <h1>Créer votre compte</h1>
         <form>
             <label for="username">Votre Pseudonyme</label>
-            <input type="text" id="username" name="username" placeholder="Pseudo" />
+            <input type="text" id="username" name="username" placeholder="Pseudo" v-model="user.username"/>
             <label for="email">Votre email</label>
-            <input type="email" id="email" name="email" placeholder="exemple@groupomania.fr">
+            <input type="email" id="email" name="email" placeholder="exemple@groupomania.fr" v-model="user.email"/>
             <label for="password">Votre mot de passe</label>
-            <input type="password" id="password" name="password" placeholder="Votre mot de passe"/>
-            <label for="confirmPassword">Confirmer votre mot de passe</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Votre mot de passe" />
+            <input type="password" id="password" name="password" placeholder="Votre mot de passe" v-model="user.password" />
             <div class="type">
                 <p>Qui êtes-vous ?</p>
-                <input type="radio" id="employee" name="type" />
+                <input type="radio" id="employee" name="employee" v-model="user.employee"/>
                 <label for="employee">Salarié</label>
-                <input type="radio" id="moderator" name="type" />
+                <input type="radio" id="moderator" name="moderator" v-model="user.moderator"/>
                 <label for="moderator">Modérateur</label>
             </div>
-            <button @click="createUser()">Créer mon compte</button>
+            <button @click.prevent="createUser">Créer mon compte</button>
         </form>
         <router-link to="/login" class="link-login">J'ai déjà un compte !</router-link>
     </div>
@@ -28,12 +26,28 @@ import axios from 'axios'
 
 export default {
     name:'Signup',
+    data() {
+        return {
+            user: {
+                username: '',
+                email: '',
+                password: '',
+                employee: '',
+                moderator: ''
+            } 
+        }
+    },
     methods: {
-        createUser() {
-            axios.post('http://localhost:8080/api/signup')
-                .then(response => {
-                    console.log(response);
-                })
+        createUser: function() {
+            axios.post('http://localhost:3000/api/auth/signup', this.user, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                console.log('response',response.data);
+            })
+            .catch(error => console.log(error.response.data));
         }
     }
 }

@@ -3,10 +3,10 @@
         <h1>Me Connecter</h1>
         <form>
             <label for="email" class="margin-form">Votre adresse email</label>
-            <input type="email" id="email" class="margin-form" name="email" placeholder="exemple@groupomania.fr">
+            <input type="email" id="email" class="margin-form" name="email" placeholder="exemple@groupomania.fr" v-model="user.email">
             <label for="password" class="margin-form">Mot de passe</label>
-            <input type="password" id="password" class="margin-form" name="password" placeholder="Mon mot de passe">
-            <button @click="loginUser()">Connexion</button>
+            <input type="password" id="password" class="margin-form" name="password" placeholder="Mon mot de passe" v-model="user.password">
+            <button @click.prevent="loginUser">Connexion</button>
         </form>
     </div>
 </template>
@@ -16,14 +16,25 @@ import axios from 'axios'
 
 export default {
     name: 'Login',
+    data() {
+        return { 
+            user: {
+                email: '',
+                password: ''
+            }
+        }
+    },
     methods: {
-        loginUser() {
-            axios.post('api/login')
-            .then(response => {
-                console.log(response);
+        loginUser: function() {
+            axios.post('http://localhost:3000/api/auth/login', this.user, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
             })
-            .catch(error => console.log(error));
-            
+            .then(response => {
+                console.log('response',response.data)
+            })
+            .catch(error => console.log(error.response.data)); 
         }
     }
 }

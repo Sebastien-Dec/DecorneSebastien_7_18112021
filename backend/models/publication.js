@@ -47,3 +47,4 @@ const Publication = sequelize.define('Publication', {
 });
 
 console.log(Publication === sequelize.models.Publication);
+module.exports = sequelize.models.Publication;

@@ -24,14 +24,14 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING(250),
         allowNull: false,
-        validate: {
-            is: /^[0-9a-zA-Z!/?$£%&]$/i
-        }
     },
 
-    type: {
-        type: DataTypes.STRING(100),
-        allowNull: false
+    employee: {
+        type: DataTypes.BOOLEAN,
+    },
+
+    moderator: {
+        type: DataTypes.BOOLEAN,
     },
 
     state: {
@@ -51,6 +51,7 @@ const User = sequelize.define('User', {
 });
 
 console.log(User === sequelize.models.User);
+module.exports = sequelize.models.User;
 
 
 
