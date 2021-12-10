@@ -18,12 +18,18 @@ const User = sequelize.define('User', {
     email: {
         type: DataTypes.STRING(100),
         allowNull: false,
-        unique: true
+        unique: true,
+        validate: {
+            isEmail: true,
+        }
     },
 
     password: {
         type: DataTypes.STRING(250),
         allowNull: false,
+        /*validate: {
+            is: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i
+        }*/
     },
 
     employee: {
