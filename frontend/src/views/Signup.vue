@@ -8,6 +8,8 @@
             <input type="email" id="email" name="email" placeholder="exemple@groupomania.fr" v-model="user.email"/>
             <label for="password">Votre mot de passe</label>
             <input type="password" id="password" name="password" placeholder="Votre mot de passe" v-model="user.password" />
+            <label for="confirmPassword">Confirmer votre mot de passe</label>
+            <input type="password" id="confirmPassword" nae="confirmPassword" placeholder="Saisissez de nouveau votre mot de passe" v-model="user.confirmPassword">
             <div class="type">
                 <p>Qui êtes-vous ?</p>
                 <input type="radio" id="employee" name="employee" v-model="user.employee"/>
@@ -32,8 +34,9 @@ export default {
                 username: '',
                 email: '',
                 password: '',
-                employee: '',
-                moderator: ''
+                confirmPassword: '',
+                employee: false,
+                moderator: false
             } 
         }
     },
@@ -41,7 +44,7 @@ export default {
         createUser: function() {
             axios.post('http://localhost:3000/api/auth/signup', this.user, {
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 }
             })
             .then(response => {

@@ -1,12 +1,12 @@
 <template>
     <div class="bloc-modale" v-if="revele">
 
-        <div class="overlay" v-on:click='toggleModale'>
+        <div class="overlay" @click='toggleModale'>
 
         </div>
 
         <div class="modale">
-            <div class="btn-modale" v-on:click='toggleModale'>X</div>
+            <div class="btn-modale" @click='toggleModale'>X</div>
             <Comment />
         </div>
     </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Comment from './Comment.vue'
+import Comment from '../views/Comment.vue'
 
 export default {
     name: 'Modale',

@@ -19,7 +19,7 @@ app.use(cors());
 })*/
 
 // Connection to DataBase Mysql
-const sequelize = new Sequelize('groupomania', 'root', 'Marilyne131180!/', {
+const sequelize = new Sequelize('groupomania', 'moderator', 'moderator', {
     host: 'localhost',
     dialect: 'mysql'
 });

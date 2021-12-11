@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div v-if="users.type === 'employee'">
+        <div v-if="users.employee === true">
             <img src="../assets/icon.png" alt="Photo de l'utilisateur" />
         </div>
-        <div v-else-if="users.type === 'moderator'">
+        <div v-else-if="users.moderator === true">
              <img src="../assets/admin.png" alt="Photo du modérateur" />
         </div>
     </div>
@@ -19,7 +19,8 @@ export default {
                 username: 'sebastien',
                 email: 'sebastien@decorne.com',
                 password: 'sebastien',
-                type: 'moderator',
+                employee: false,
+                moderator: true,
                 state: 'actif',
                 createdAt: '02/12/2021 11:25',
                 updatedAt: '02/12/2021 11:25'

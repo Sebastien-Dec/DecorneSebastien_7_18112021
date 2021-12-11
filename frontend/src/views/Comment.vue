@@ -1,22 +1,22 @@
 <template>
     <div id="comment">
-        <!--<div class="otherComment">
+        <div class="otherComment">
             <ImageUser /> 
             {{ user.username }}
             {{ publication.createdAt }}
             {{ comment.text }}
-        </div>-->
+        </div>
         <div class="user">
             <ImageUser />
             <h1>{{ user.username }}</h1>
         </div>
-        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" />
+        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="user.comment"/>
         <button>Poster</button>
     </div>
 </template>
 
 <script>
-import ImageUser from './ImageUser.vue'
+import ImageUser from '../components/ImageUser.vue'
 
 export default {
     name: 'Comment',
@@ -30,10 +30,12 @@ export default {
                 username: 'sebastien',
                 email: 'sebastien@decorne.com',
                 password: 'sebastien',
-                type: 'moderator',
+                employee: false,
+                moderator: true,
                 state: 'actif',
                 createdAt: '02/12/2021 11:25',
                 updatedAt: '02/12/2021 11:25',
+                comment: ''
             }
         }   
     }

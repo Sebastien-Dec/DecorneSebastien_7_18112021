@@ -12,9 +12,9 @@
             <img :src="user.gifUrl" alt="Gif de la publication">
             <p>{{ user.text }}</p>
             <div class="comment">
-                <modale v-bind:revele="revele" v-bind:toggleModale="toggleModale"></modale>
+                <modale :revele="revele" :toggleModale="toggleModale"></modale>
                 <div>
-                    <button v-on:click="toggleModale">{{ numberOfComments }} commentaires</button>
+                    <button @click="toggleModale">{{ numberOfComments }} commentaires</button>
                 </div>
                 
             </div>
@@ -42,7 +42,8 @@ export default {
                 username: 'sebastien',
                 email: 'sebastien@decorne.com',
                 password: 'sebastien',
-                type: 'moderator',
+                employee: false,
+                moderator: true,
                 state: 'actif',
                 createdAt: '02/12/2021 11:25',
                 updatedAt: '02/12/2021 11:25',
@@ -56,7 +57,8 @@ export default {
                 username: 'Marilyne',
                 email: 'marilyne@decorne.com',
                 password: 'marilyne',
-                type: 'employee',
+                employee: true,
+                moderator: false,
                 state: 'actif',
                 createdAt: '03/12/2021 15:07',
                 updatedAt: '03/12/2021 15:08',

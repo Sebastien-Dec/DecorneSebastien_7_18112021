@@ -3,13 +3,13 @@
         <form>
             <h1>Ajouter une publication</h1>
             <label for="title">Titre de la publication</label>
-            <input type="text" id="title" name="title" placeholder="Titre de votre publication" />
+            <input type="text" id="title" name="title" placeholder="Titre de votre publication" v-model="newPost.title" />
             <label for="gifUrl">Lien URL du Gif</label>
-            <input type="link" id="gifUrl" name="gifUrl" placeholder="https://www.gif.com" />
+            <input type="link" id="gifUrl" name="gifUrl" placeholder="https://www.gif.com" v-model="newPost.gifUrl"/>
             <label for="text">Votre texte</label>
-            <input type="text" id="text" name="text" placeholder="Votre texte" />
+            <input type="text" id="text" name="text" placeholder="Votre texte" v-model="newPost.text"/>
             <div class="button">
-                <ButtonNewPost text="Ajouter une publication" />
+                <ButtonNewPost text="Ajouter une publication" @click.prevent="createPost"/>
             </div>
         </form>
     </div>
@@ -17,11 +17,35 @@
 
 <script>
 import ButtonNewPost from '../components/ButtonNewPost.vue'
+import axios from 'axios'
 
 export default {
     name:'NewPost', 
     components: {
         ButtonNewPost
+    },
+    data() {
+        return {
+            newPost: {
+                title: '',
+                gifUrl: '',
+                text: ''
+            }
+        }
+    },
+    methods: {
+        createPost() {
+            axios.post('http://localhost:3000/api/publications/', this.newPost, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('response', response.data);
+            })
+            .catch(error => console.log('error', error.response.data));
+
+        } 
     }
 }
 
