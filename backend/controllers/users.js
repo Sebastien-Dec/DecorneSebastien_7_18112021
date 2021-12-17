@@ -11,8 +11,7 @@ exports.signup = (req, res, next) => {
                 username: req.body.username,
                 email: req.body.email,
                 password: hash,
-                emplyee: req.body.employee,
-                moderator: req.body.moderator
+                type: req.body.type,
             };
             User.create(user)
                 .then(() => res.satus(201).json({ messsage: 'Utilisateur créé !' }))

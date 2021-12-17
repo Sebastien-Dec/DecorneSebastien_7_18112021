@@ -1,5 +1,6 @@
-const  { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory');
+const db = require('./db');
+const sequelize = db.sequelize;
+const { DataTypes } = require('sequelize');
 
 const User = sequelize.define('User', {
     id: {
@@ -32,16 +33,12 @@ const User = sequelize.define('User', {
         }*/
     },
 
-    employee: {
-        type: DataTypes.BOOLEAN,
-    },
-
-    moderator: {
-        type: DataTypes.BOOLEAN,
+    type: {
+        type: DataTypes.STRING(10),
     },
 
     state: {
-        type: DataTypes.STRING(100)
+        type: DataTypes.STRING(20)
     }
 }, {
     classMethods: {
@@ -56,8 +53,7 @@ const User = sequelize.define('User', {
     modelName: 'User'
 });
 
-console.log(User === sequelize.models.User);
-module.exports = sequelize.models.User;
+module.exports = User;
 
 
 

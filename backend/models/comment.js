@@ -1,5 +1,6 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory');
+const db = require('./db');
+const sequelize = db.sequelize;
+const { DataTypes } = require('sequelize');
 
 const Comment = sequelize.define('Comment', {
     id: {
@@ -53,5 +54,5 @@ const Comment = sequelize.define('Comment', {
     modelName: 'Comment'
 });
 
-console.log(Comment === sequelize.models.Comment);
-module.exports = sequelize.models.Comment;
+
+module.exports = Comment;

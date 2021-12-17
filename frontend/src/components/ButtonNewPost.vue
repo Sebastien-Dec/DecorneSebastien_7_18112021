@@ -28,7 +28,6 @@ $colorNewPost: #FF3D1D;
     &:hover {
         background-color: darken($colorNewPost, 10%);
         cursor: pointer;
-
     }
 }
 </style>

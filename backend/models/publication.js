@@ -1,5 +1,6 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory');
+const db = require('./db');
+const sequelize = db.sequelize;
+const { DataTypes } = require('sequelize');
 
 const Publication = sequelize.define('Publication', {
     id: {
@@ -38,7 +39,8 @@ const Publication = sequelize.define('Publication', {
                 foreignKey: {
                     allowNull: false,
                 }
-            })
+            }),
+            models.Publication.hasMany(models.Comment)
         }
     }
 }, {
@@ -46,5 +48,4 @@ const Publication = sequelize.define('Publication', {
     modelName: 'Publication'
 });
 
-console.log(Publication === sequelize.models.Publication);
-module.exports = sequelize.models.Publication;
+module.exports = Publication;
