@@ -14,7 +14,11 @@ exports.signup = (req, res, next) => {
                 type: req.body.type,
             };
             User.create(user)
-                .then(() => res.satus(201).json({ messsage: 'Utilisateur créé !' }))
+                .then(() => res.satus(201).json({ token: jwt.sign(
+                    { userId: user._id },
+                    'RANDOM_TOKEN_SECRET',
+                    { expiresIn: '24h' })
+                }))
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
@@ -36,7 +40,7 @@ exports.login = (req, res, next) => {
                         userId: user._id,
                         // Verification of the authorization token
                         token: jwt.sign(
-                            { userId: user._id},
+                            { userId: user._id },
                             'RANDOM_TOKEN_SECRET',
                             { expiresIn: '24h' }
                         )

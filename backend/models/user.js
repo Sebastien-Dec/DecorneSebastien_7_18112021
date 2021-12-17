@@ -35,6 +35,7 @@ const User = sequelize.define('User', {
 
     type: {
         type: DataTypes.STRING(10),
+        allowNull: false,
     },
 
     state: {
