@@ -10,21 +10,36 @@
 </template>
 
 <script>
+import axios from'axios'
+
 export default {
     name: 'ImageUser',
     data() { 
         return {
             users: {
-                id: '0',
-                username: 'sebastien',
-                email: 'sebastien@decorne.com',
-                password: 'sebastien',
-                type: 'moderator',
-                state: 'actif',
-                createdAt: '02/12/2021 11:25',
-                updatedAt: '02/12/2021 11:25'
+                id: '',
+                username: '',
+                email: '',
+                password: '',
+                type: '',
+                state: '',
+                createdAt: '',
+                updatedAt: ''
             },
         }   
+    },
+    method: {
+        users(){
+            axios.get('http://localhost:3000/', this.users, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('response',response.data);
+            })
+            .catch(error => console.log(error));
+        }
     }
 }
 </script>

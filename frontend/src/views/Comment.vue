@@ -2,15 +2,15 @@
     <div id="comment">
         <div class="otherComment">
             <ImageUser /> 
-            {{ user.username }}
-            {{ publication.createdAt }}
+            {{ users_id.username }}
+            {{ publications.createdAt }}
             {{ comment.text }}
         </div>
         <div class="user">
             <ImageUser />
-            <h1>{{ user.username }}</h1>
+            <h1>{{ users_id.username }}</h1>
         </div>
-        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="user.comment"/>
+        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="comment.comment"/>
         <button>Poster</button>
     </div>
 </template>
@@ -25,16 +25,10 @@ export default {
     },
     data() {
         return {
-            user: {
-                id: 0,
-                username: 'sebastien',
-                email: 'sebastien@decorne.com',
-                password: 'sebastien',
-                typr: 'moderator',
-                state: 'actif',
-                createdAt: '02/12/2021 11:25',
-                updatedAt: '02/12/2021 11:25',
-                comment: ''
+            comment: {
+                comment: '',
+                publications_id: '',
+                users_id: ''
             }
         }   
     }

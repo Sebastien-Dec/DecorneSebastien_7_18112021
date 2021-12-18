@@ -1,16 +1,16 @@
 <template>
     <div id='home'>
-        <section id="userId" v-for="user in users" :key="user">
+        <section id="userId">
             <div class="id">
                 <ImageUser />
                 <div class="id__margin-left">
-                    <h1>{{ user.username }}</h1>
-                    <h2>{{ user.createdAtPublication }}</h2>
+                    <h1>{{ users_id.username }}</h1>
+                    <h2>{{ publications.createdAt }}</h2>
                 </div>
             </div>
-            <h1>{{ user.title }}</h1>
-            <img :src="user.gifUrl" alt="Gif de la publication">
-            <p>{{ user.text }}</p>
+            <h1>{{ publications.title }}</h1>
+            <img :src="publications.gifUrl" alt="Gif de la publication">
+            <p>{{ publications.text }}</p>
             <div class="comment">
                 <modale :revele="revele" :toggleModale="toggleModale"></modale>
                 <div>
@@ -27,8 +27,6 @@
 import ImageUser from '../components/ImageUser.vue'
 import Modale from '../components/Modale.vue'
 
-
-
 export default {
     name: 'Home',
     components:  {
@@ -37,34 +35,12 @@ export default {
     },
     data() { 
         return {
-            users: [{
-                id: 0,
-                username: 'sebastien',
-                email: 'sebastien@decorne.com',
-                password: 'sebastien',
-                type: 'moderator',
-                state: 'actif',
-                createdAt: '02/12/2021 11:25',
-                updatedAt: '02/12/2021 11:25',
-                title: 'Superbe Gif',
-                createdAtPublication: '03/12/2021 11:54',
-                gifUrl: 'https://media2.giphy.com/media/lvY2I2F5ZVReZTDksy/200w.webp',
-                text: 'Génial'
+            publications: {
+                title: '',
+                gifUrl: '',
+                text: '',
+                users_id: ''
             },
-            {
-                id: 1,
-                username: 'Marilyne',
-                email: 'marilyne@decorne.com',
-                password: 'marilyne',
-                type: 'employee',
-                state: 'actif',
-                createdAt: '03/12/2021 15:07',
-                updatedAt: '03/12/2021 15:08',
-                title: 'Pas top celui la',
-                createdAtPublication: '03/12/2021 15:09',
-                gifUrl: 'https://media.giphy.com/media/rhnSEJmB9NO42ykQYz/giphy.gif',
-                text: 'Non il est super'
-            }],
             revele: false
         }
     },

@@ -32,7 +32,8 @@ export default {
                 }
             })
             .then(response => {
-                console.log('response',response.data)
+                console.log('response',response.data);
+                document.location.href='http://localhost:8080/#/publications'
             })
             .catch(error => console.log(error.response.data)); 
         }
