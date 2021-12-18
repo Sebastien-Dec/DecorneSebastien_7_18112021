@@ -41,7 +41,35 @@ export default {
         }
     },
     methods: {
+        //check the email format
+        validateEmail(email){
+            let emailRegExp = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$','g');
+            return emailRegExp.test(email);
+        },
+        //check the password format
+        validatePassword(password){
+            let passwordRegExp = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$');
+            return passwordRegExp.test(password);
+        },
         createUser: function() {
+            //check the form data
+            if(!this.user.username) {
+                alert("Veuillez indentique votre pseudo !");
+                return;
+            } else if(!this.validateEmail(this.user.email)){
+                alert("Ceci n'est pas un email !");
+                return;
+            } else if(!this.validatePassword(this.user.password)) {
+                alert("Votre mot de passe doit contenir au moins 8 caractères avec au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 des caractères spéciaux");
+                return;
+            } else if(this.user.password != this.user.confirmPassword) {
+                alert("Votre saisie ne correspond pas à votre mot de passe !");
+                return;
+            } else if(!this.user.type){
+                alert("Veuillez indiquer si vous êtes un employé ou un moderateur");
+                return;
+            }
+            //send the information entered to the database
             axios.post('http://localhost:3000/api/auth/signup', this.user, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,7 +77,7 @@ export default {
             })
             .then(response => {
                 console.log('response',response.data);
-                window.location.href=`http://localhost:8080/publications`;
+                window.location.href='http://localhost:8080/login';
             })
             .catch(error => console.log(error.response));
         }

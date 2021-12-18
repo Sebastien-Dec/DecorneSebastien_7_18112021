@@ -14,11 +14,7 @@ exports.signup = (req, res, next) => {
                 type: req.body.type,
             };
             User.create(user)
-                .then(() => res.satus(201).json({ token: jwt.sign(
-                    { userId: user._id },
-                    'RANDOM_TOKEN_SECRET',
-                    { expiresIn: '24h' })
-                }))
+                .then(() => res.satus(201).json({ message: 'Utilisateur créé !'}))
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));

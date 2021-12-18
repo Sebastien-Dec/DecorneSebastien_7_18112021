@@ -28,9 +28,9 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING(250),
         allowNull: false,
-        /*validate: {
+        validate: {
             is: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i
-        }*/
+        }
     },
 
     type: {
@@ -39,7 +39,8 @@ const User = sequelize.define('User', {
     },
 
     state: {
-        type: DataTypes.STRING(20)
+        type: DataTypes.STRING(20),
+        
     }
 }, {
     classMethods: {
