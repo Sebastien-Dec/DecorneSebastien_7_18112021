@@ -2,13 +2,13 @@
     <div id="comment">
         <div class="otherComment">
             <ImageUser /> 
-            {{ users_id.username }}
-            {{ publications.createdAt }}
+            {{ comment.users_id.username }}
+            {{ comment.publications_id.createdAt }}
             {{ comment.text }}
         </div>
         <div class="user">
             <ImageUser />
-            <h1>{{ users_id.username }}</h1>
+            <h1>{{ comment.users_id.username }}</h1>
         </div>
         <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="comment.comment"/>
         <button>Poster</button>
@@ -28,7 +28,9 @@ export default {
             comment: {
                 comment: '',
                 publications_id: '',
-                users_id: ''
+                users_id: '',
+                createdAt: '',
+                updatedAt: ''
             }
         }   
     }

@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         createPost() {
-            axios.post('http://localhost:3000/api/publications/', this.newPost, {
+            axios.post('http://localhost:3000/api/publications', this.newPost, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

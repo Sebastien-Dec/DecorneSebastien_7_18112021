@@ -1,11 +1,11 @@
 <template>
     <header id="header">
-        <nav class='navbar' id="connectionBar" v-if="!['welcome', 'newpost', 'publications'].includes($route.name)">
+        <nav class='navbar' id="connectionBar" v-if="!['welcome', 'newPost', 'publications'].includes($route.name)">
             <HeaderLogo />
             <ButtonLogin />
             <ButtonSignup />
         </nav>
-        <nav class='navbar' id="connectedBar" v-else-if="!['welcome', 'login', 'signup'].includes($route.name)">
+        <nav class='navbar' id="connectedBar" v-else-if="!['welcome', 'login', 'signup', 'newPost'].includes($route.name)">
             <HeaderLogo />
             <ImageUser />
             <ButtonNewPost text="Nouvelle Publication" />

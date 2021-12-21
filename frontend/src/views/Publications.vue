@@ -4,7 +4,7 @@
             <div class="id">
                 <ImageUser />
                 <div class="id__margin-left">
-                    <h1>{{ users_id.username }}</h1>
+                    <h1>{{ $store.state.user.username }}</h1>
                     <h2>{{ publications.createdAt }}</h2>
                 </div>
             </div>
@@ -26,6 +26,7 @@
 <script>
 import ImageUser from '../components/ImageUser.vue'
 import Modale from '../components/Modale.vue'
+import axios from 'axios'
 
 export default {
     name: 'Home',
@@ -39,7 +40,9 @@ export default {
                 title: '',
                 gifUrl: '',
                 text: '',
-                users_id: ''
+                users_id: '',
+                createdAt: '',
+                updatedAt: ''
             },
             revele: false
         }
@@ -47,8 +50,15 @@ export default {
     methods: {
         toggleModale: function() {
             this.revele = !this.revele
+        },
+        getAllPublications() {
+            axios.get('http://localhost:3000/api/publications', this.publications)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => console.log(error));
         }
-    }
+    },
 }
 </script>
 

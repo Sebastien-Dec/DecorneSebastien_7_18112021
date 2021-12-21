@@ -28,11 +28,12 @@ export default {
         loginUser: function() {
             axios.post('http://localhost:3000/api/auth/login', this.user, {
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 }
             })
             .then(response => {
                 console.log('response',response.data);
+                localStorage.setItem('tokens', JSON.stringify(response.data.token));
                 document.location.href='http://localhost:8080/#/publications'
             })
             .catch(error => console.log(error.response.data)); 

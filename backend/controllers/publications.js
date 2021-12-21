@@ -22,7 +22,7 @@ exports.modifyPublication = (req, res, next) => {
 
 exports.deletePublication = (req, res, next) => {
     Publication.findOne({ _id: req.params.id })
-        .then(comment => {
+        .then(publication => {
             Publication.destroy({ _id: req.params.id })
                 .then(() => res.status(200).json({ message : 'Publication supprimée !'}))
                 .catch(error => res.status(400).json({ error }));

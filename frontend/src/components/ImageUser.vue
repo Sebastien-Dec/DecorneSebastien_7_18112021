@@ -1,45 +1,36 @@
 <template>
     <div>
-        <div v-if="users.type === 'employee'">
+        <div v-if="user.type === 'employee'">
             <img src="../assets/icon.png" alt="Photo de l'utilisateur" />
         </div>
-        <div v-else-if="users.type === 'moderator'">
+        <div v-else-if="user.type === 'moderator'">
              <img src="../assets/admin.png" alt="Photo du modérateur" />
         </div>
     </div>
 </template>
 
 <script>
-import axios from'axios'
+import axios from 'axios'
 
 export default {
     name: 'ImageUser',
-    data() { 
+    data() {
         return {
-            users: {
-                id: '',
-                username: '',
-                email: '',
-                password: '',
-                type: '',
-                state: '',
-                createdAt: '',
-                updatedAt: ''
-            },
-        }   
+            user: {
+                type :''
+            }
+        }
     },
     method: {
-        users(){
-            axios.get('http://localhost:3000/', this.users, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                console.log('response',response.data);
-            })
-            .catch(error => console.log(error));
-        }
+        getAnUser: function() {
+      axios.get('http://localhost:3000/api/auth/getuser', this.user)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
     }
 }
 </script>
