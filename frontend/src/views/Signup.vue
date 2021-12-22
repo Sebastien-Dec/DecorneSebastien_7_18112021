@@ -36,7 +36,7 @@ export default {
                 password: '',
                 confirmPassword: '',
                 type: '',
-                state: ''
+                state: 'Actif'
             } 
         }
     },

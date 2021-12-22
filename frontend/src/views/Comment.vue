@@ -11,12 +11,13 @@
             <h1>{{ comment.users_id.username }}</h1>
         </div>
         <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="comment.comment"/>
-        <button>Poster</button>
+        <button @click="postComment">Poster</button>
     </div>
 </template>
 
 <script>
 import ImageUser from '../components/ImageUser.vue'
+import axios from 'axios'
 
 export default {
     name: 'Comment',
@@ -33,6 +34,20 @@ export default {
                 updatedAt: ''
             }
         }   
+    },
+    method: {
+        postComment() {
+            axios.post('hrrp://localhost:3000/comments', this.comment, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer" + " " + localStorage.getItem("tokens")
+                }
+            })
+            .then(response => {
+                console.log('response', response.data)
+            })
+            .catch(error => console.log(error.response));
+        }
     }
 }
 </script>

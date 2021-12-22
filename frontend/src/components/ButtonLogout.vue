@@ -1,8 +1,19 @@
 <template>
-    <div>
-        <button id="logout">Me déconnecter</button>
-    </div>
+    <router-link to="/">
+        <button id="logout" @click="logout">Me déconnecter</button>
+     </router-link>
 </template>
+
+<script>
+export default {
+    name: 'ButtonLogout',
+    method: {
+      logout() {
+        localStorage.removeItem("tokens");
+      }  
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 $colorLogout: whitesmoke;
@@ -22,8 +33,3 @@ $colorLogout: whitesmoke;
 }
 </style>
 
-<script>
-export default {
-    name: 'ButtonLogout',
-}
-</script>

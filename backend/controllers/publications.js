@@ -1,7 +1,7 @@
 const Publication = require('../models/publication');
 
 exports.createPublication = (req, res, next) => {
-    const publicationObject = JSON.parse(req.body.publications);
+    const publicationObject = JSON.parse(req.body.publication);
     delete req.body._id;
     const publication = Publication.build({
         ...publicationObject

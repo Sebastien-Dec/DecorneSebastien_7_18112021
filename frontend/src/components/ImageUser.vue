@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div v-if="user.type === 'employee'">
+        <div v-if="$store.state.user.type === 'employee'">
             <img src="../assets/icon.png" alt="Photo de l'utilisateur" />
         </div>
-        <div v-else-if="user.type === 'moderator'">
+        <div v-else-if="$store.state.user.type === 'moderator'">
              <img src="../assets/admin.png" alt="Photo du modérateur" />
         </div>
     </div>
@@ -23,14 +23,14 @@ export default {
     },
     method: {
         getAnUser: function() {
-      axios.get('http://localhost:3000/api/auth/getuser', this.user)
-        .then(response => {
-          console.log(response)
-        })
-        .catch(error => {
-          console.log(error)
-        });
-    }
+        axios.get('http://localhost:3000/api/auth/getuser', this.user)
+            .then(response => {
+            console.log(response)
+            })
+            .catch(error => {
+            console.log(error)
+            });
+        }
     }
 }
 </script>

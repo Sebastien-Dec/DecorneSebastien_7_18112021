@@ -14,7 +14,7 @@
             <div class="comment">
                 <modale :revele="revele" :toggleModale="toggleModale"></modale>
                 <div>
-                    <button @click="toggleModale">{{ numberOfComments }} commentaires</button>
+                    <button @click="toggleModale"> commentaires</button>
                 </div>
                 
             </div>
