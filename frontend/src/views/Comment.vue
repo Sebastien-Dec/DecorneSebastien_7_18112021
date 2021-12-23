@@ -2,9 +2,9 @@
     <div id="comment">
         <div class="otherComment">
             <ImageUser /> 
-            {{ comment.users_id.username }}
-            {{ comment.publications_id.createdAt }}
-            {{ comment.text }}
+            {{ data.users_id.username }}
+            {{ data.publications_id.createdAt }}
+            {{ data.text }}
         </div>
         <div class="user">
             <ImageUser />
@@ -37,18 +37,36 @@ export default {
     },
     method: {
         postComment() {
+            let token = localStorage.getItem("tokens")
             axios.post('hrrp://localhost:3000/comments', this.comment, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer" + " " + localStorage.getItem("tokens")
+                    "Authorization": "Bearer " + token
                 }
             })
             .then(response => {
                 console.log('response', response.data)
             })
             .catch(error => console.log(error.response));
+        },
+        getComment() {
+            let token = localStorage.getItem('tokens')
+            axios.get('http://localhost:3000/comments', {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+            .then(data => {
+                return data;
+            })
+            .catch(error => res.status(400).jsopn({ error }));
         }
+    },
+    beforeMount() {
+        this.getcomment();
     }
+
 }
 </script>
 

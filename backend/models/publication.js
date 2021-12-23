@@ -38,6 +38,7 @@ const Publication = sequelize.define('Publication', {
             models.Publication.belongsTo(models.User, {
                 foreignKey: {
                     allowNull: false,
+                    name: 'users_id'
                 }
             }),
             models.Publication.hasMany(models.Comment)

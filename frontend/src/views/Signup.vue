@@ -79,7 +79,7 @@ export default {
                 console.log('response',response.data);
                 window.location.href='http://localhost:8080/#/login';
             })
-            .catch(error => console.log(error.response));
+            .catch(error => console.log(error.response)); 
         }
     }
 }

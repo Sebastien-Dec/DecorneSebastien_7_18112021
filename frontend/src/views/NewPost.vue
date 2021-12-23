@@ -29,16 +29,19 @@ export default {
             newPost: {
                 title: '',
                 gifUrl: '',
-                text: ''
+                text: '',
+                users_id: localStorage.getItem('user_id')
             }
         }
     },
     methods: {
         createPost() {
+            let token = localStorage.getItem("tokens")
+            console.log("token", token);
             axios.post('http://localhost:3000/api/publications', this.newPost, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer" + " " + localStorage.getItem("tokens")
+                    "Authorization": "Bearer " + token
                 }
             })
             .then(response => {

@@ -1,16 +1,18 @@
 <template>
     <div id='home'>
-        <section id="userId">
+        <section id="userId" v-for="publication in publications" :key="publication">
             <div class="id">
                 <ImageUser />
                 <div class="id__margin-left">
                     <h1>{{ $store.state.user.username }}</h1>
-                    <h2>{{ publications.createdAt }}</h2>
+                    <h2>{{ publication.createdAt }}</h2>
                 </div>
             </div>
-            <h1>{{ publications.title }}</h1>
-            <img :src="publications.gifUrl" alt="Gif de la publication">
-            <p>{{ publications.text }}</p>
+            <div>
+                <h1>{{ publication.title }}</h1>
+                <img :src="publication.gifUrl" alt="Gif de la publication">
+                <p>{{ publication.text }}</p>
+            </div>
             <div class="comment">
                 <modale :revele="revele" :toggleModale="toggleModale"></modale>
                 <div>
@@ -36,14 +38,7 @@ export default {
     },
     data() { 
         return {
-            publications: {
-                title: '',
-                gifUrl: '',
-                text: '',
-                users_id: '',
-                createdAt: '',
-                updatedAt: ''
-            },
+            publications: [],
             revele: false
         }
     },
@@ -52,13 +47,24 @@ export default {
             this.revele = !this.revele
         },
         getAllPublications() {
-            axios.get('http://localhost:3000/api/publications', this.publications)
-                .then(response => {
-                    console.log(response)
+            let token = localStorage.getItem("tokens")
+            axios.get('http://localhost:3000/api/publications', {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+                .then(data => {
+                    this.publications = data;
+                    console.log(this.publications, data);
+                    return;
                 })
                 .catch(error => console.log(error));
         }
     },
+    beforeMount() {
+        this.getAllPublications()
+    }
 }
 </script>
 

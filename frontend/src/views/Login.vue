@@ -33,7 +33,8 @@ export default {
             })
             .then(response => {
                 console.log('response',response.data);
-                localStorage.setItem('tokens', JSON.stringify(response.data.token));
+                localStorage.setItem('tokens', response.data.token);
+                localStorage.setItem('user_id', response.data.userId)
                 document.location.href='http://localhost:8080/#/publications'
             })
             .catch(error => console.log(error.response.data)); 

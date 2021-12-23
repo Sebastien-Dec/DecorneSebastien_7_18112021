@@ -1,8 +1,8 @@
 const Publication = require('../models/publication');
 
 exports.createPublication = (req, res, next) => {
-    const publicationObject = JSON.parse(req.body.publication);
-    delete req.body._id;
+    const publicationObject = req.body;
+    delete req.body.id;
     const publication = Publication.build({
         ...publicationObject
     });
@@ -13,7 +13,7 @@ exports.createPublication = (req, res, next) => {
 
 exports.modifyPublication = (req, res, next) => {
     const publicationObject = req.file ?
-        { ...JSON.parse(req.body.publications) } : { ...req.body };
+        { ...req.body } : { ...req.body };
         Publication.set({ _id: req.params.id }, { ...req.body, _id: req.params.id });
         Publication.save()
             .then(() => req.status(200).json({ message : 'Publication modifiée !'}))

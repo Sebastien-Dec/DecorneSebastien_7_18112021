@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import axios from 'axios'
+//import axios from 'axios'
 
 export default {
     name: 'ImageUser',
-    data() {
+    /*data() {
         return {
             user: {
                 type :''
@@ -24,14 +24,14 @@ export default {
     method: {
         getAnUser: function() {
         axios.get('http://localhost:3000/api/auth/getuser', this.user)
-            .then(response => {
-            console.log(response)
+            .then(data => {
+            this.user = data
             })
             .catch(error => {
             console.log(error)
             });
         }
-    }
+    }*/
 }
 </script>
 

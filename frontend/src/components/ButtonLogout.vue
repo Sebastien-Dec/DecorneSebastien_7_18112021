@@ -9,7 +9,7 @@ export default {
     name: 'ButtonLogout',
     method: {
       logout() {
-        localStorage.removeItem("tokens");
+        localStorage.clear();
       }  
     }
 }

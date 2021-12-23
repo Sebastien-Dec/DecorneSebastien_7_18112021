@@ -11,10 +11,10 @@ exports.signup = (req, res, next) => {
                 username: req.body.username,
                 email: req.body.email,
                 password: hash,
-                type: req.body.type,
+                type: req.body.type, 
             };
             User.create(user)
-                .then(() => res.satus(201).json({ message: 'Utilisateur créé !'}))
+                .then(() => res.status(201).json({ message: 'Utilisateur créé !'}))
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
