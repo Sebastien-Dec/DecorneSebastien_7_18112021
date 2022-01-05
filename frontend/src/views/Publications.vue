@@ -54,9 +54,9 @@ export default {
                     "Authorization": "Bearer " + token
                 }
             })
-                .then(data => {
-                    this.publications = data;
-                    console.log(this.publications, data);
+                .then(publications => {
+                    this.publications = publications;
+                    console.log("publications", publications);
                     return;
                 })
                 .catch(error => console.log(error));

@@ -1,12 +1,12 @@
 <template>
     <div id="comment">
-        <div class="otherComment">
+        <div class="otherComment" v-for="comment in comments" :key="comment">
             <ImageUser /> 
-            {{ data.users_id.username }}
-            {{ data.publications_id.createdAt }}
-            {{ data.text }}
+            {{ comment.users_id }}
+            {{ comment.publications_id }}
+            {{ comment.text }}
         </div>
-        <div class="user">
+        <div class="user" v-for="comment in comments" :key="comment">
             <ImageUser />
             <h1>{{ comment.users_id.username }}</h1>
         </div>
@@ -26,7 +26,7 @@ export default {
     },
     data() {
         return {
-            comment: {
+            comments: {
                 comment: '',
                 publications_id: '',
                 users_id: '',
@@ -35,7 +35,22 @@ export default {
             }
         }   
     },
-    method: {
+    methods: {
+        getComment() {
+            let token = localStorage.getItem('tokens')
+            axios.get('http://localhost:3000/api/comments/', {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+            .then(comments => {
+                this.comments = comments;
+                console.log('comments', comments);
+                return;
+            })
+            .catch(error => console.log(error));
+        },
         postComment() {
             let token = localStorage.getItem("tokens")
             axios.post('hrrp://localhost:3000/comments', this.comment, {
@@ -48,23 +63,10 @@ export default {
                 console.log('response', response.data)
             })
             .catch(error => console.log(error.response));
-        },
-        getComment() {
-            let token = localStorage.getItem('tokens')
-            axios.get('http://localhost:3000/comments', {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + token
-                }
-            })
-            .then(data => {
-                return data;
-            })
-            .catch(error => res.status(400).jsopn({ error }));
         }
     },
     beforeMount() {
-        this.getcomment();
+        this.getComment();
     }
 
 }

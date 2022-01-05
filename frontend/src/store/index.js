@@ -24,10 +24,10 @@ export default createStore({
       })
         .then(function(data) {
           this.user = data
-          console.log(data)
+          console.log("data user", data)
         })
         .catch(error => {
-          console.log(error)
+          console.log("error store user", error)
         });
     }
   },
