@@ -6,15 +6,18 @@ export default createStore({
   plugins: [createPersistedState({
     storage: window.sessionStorage,
   })],
+
   state: {
-    user: []
+    user: {}
   },
+
   mutations: {
     
     
   },
+
   actions: {
-    getAnUser: function() {
+    getAnUser() {
       let token = localStorage.getItem('tokens');
       axios.get('http://localhost:3000/api/auth/getuser', {
         headers: {
@@ -22,15 +25,16 @@ export default createStore({
           "Authorization": "Bearer " + token
         }
       })
-        .then(function(data) {
-          this.user = data
-          console.log("data user", data)
+        .then(function(user) {
+          this.user = user
+          console.log("data user", user)
         })
         .catch(error => {
           console.log("error store user", error)
         });
     }
   },
+  
   modules: {
   }
 })

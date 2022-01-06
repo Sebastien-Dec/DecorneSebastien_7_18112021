@@ -4,7 +4,7 @@
             <div class="id">
                 <ImageUser />
                 <div class="id__margin-left">
-                    <h1>{{ $store.state.user.username }}</h1>
+                    <h1>{{ user.username }}</h1>
                     <h2>{{ publication.createdAt }}</h2>
                 </div>
             </div>
@@ -38,7 +38,8 @@ export default {
     },
     data() { 
         return {
-            publications: [],
+            publications: {},
+            user: {},
             revele: false
         }
     },
@@ -60,6 +61,22 @@ export default {
                     return;
                 })
                 .catch(error => console.log(error));
+        },
+        getAnUser() {
+            let token = localStorage.getItem('tokens');
+            axios.get('http://localhost:3000/api/auth/getuser', {
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
+                }
+            })
+            .then(function(user) {
+                this.user = user
+                console.log("user", user)
+            })
+            .catch(error => {
+                console.log(error)
+            });
         }
     },
     beforeMount() {

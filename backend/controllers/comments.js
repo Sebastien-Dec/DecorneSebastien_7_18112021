@@ -31,7 +31,7 @@ exports.deleteComment = (req, res, next) => {
 }
 
 exports.getAllComment = (req, res, next) => {
-    Comment.findAll()
+    Comment.findAll({_id: req.parmas.id })
         .then(comments => res.status(200).json(comments))
         .catch(error => res.status(400).json({ error }));
 }

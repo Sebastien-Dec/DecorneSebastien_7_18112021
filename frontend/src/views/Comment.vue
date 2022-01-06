@@ -8,9 +8,9 @@
         </div>
         <div class="user" v-for="comment in comments" :key="comment">
             <ImageUser />
-            <h1>{{ comment.users_id.username }}</h1>
+            <h1>{{ comment.users_id }}</h1>
         </div>
-        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="comment.comment"/>
+        <input type="text" id="comment" name="comment" placeholder="Votre commentaire" v-model="comments.comment"/>
         <button @click="postComment">Poster</button>
     </div>
 </template>
@@ -27,6 +27,7 @@ export default {
     data() {
         return {
             comments: {
+                id: '',
                 comment: '',
                 publications_id: '',
                 users_id: '',
@@ -53,7 +54,7 @@ export default {
         },
         postComment() {
             let token = localStorage.getItem("tokens")
-            axios.post('hrrp://localhost:3000/comments', this.comment, {
+            axios.post('http://localhost:3000/api/comments/', this.comments, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer " + token
