@@ -8,7 +8,15 @@ export default createStore({
   })],
 
   state: {
-    user: {}
+    publications: {},
+    date: {
+      day: '',
+      month: '',
+      year: '',
+      hour: '',
+      minutes: '',
+      seconds:''
+      } 
   },
 
   mutations: {
@@ -17,24 +25,23 @@ export default createStore({
   },
 
   actions: {
-    getAnUser() {
-      let token = localStorage.getItem('tokens');
-      axios.get('http://localhost:3000/api/auth/getuser', {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + token
-        }
+    date() {
+      let token = localStorage.getItem("tokens")
+      axios.get('http://localhost:3000/api/publications', {
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + token
+          }
       })
-        .then(function(user) {
-          this.user = user
-          console.log("data user", user)
-        })
-        .catch(error => {
-          console.log("error store user", error)
-        });
+          .then(publications => {
+              this.publications = publications.data;
+              console.log("publications", publications.data);
+              return;
+          })
+          .catch(error => console.log(error));
     }
   },
   
   modules: {
-  }
+  },
 })

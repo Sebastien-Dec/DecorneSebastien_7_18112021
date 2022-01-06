@@ -40,7 +40,6 @@ const User = sequelize.define('User', {
 
     state: {
         type: DataTypes.STRING(20),
-        
     }
 }, {
     classMethods: {

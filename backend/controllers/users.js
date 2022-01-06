@@ -34,6 +34,7 @@ exports.login = (req, res, next) => {
                     }
                     res.status(200).json({
                         userId: user.id,
+                        type: user.type,
                         // Verification of the authorization token
                         token: jwt.sign(
                             { userId: user.id },
@@ -48,8 +49,18 @@ exports.login = (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 };
 
-exports.getOneUser = (req, res, next) => {
-    User.findOne({ _id: req.params.id})
-        .then(user => res.status(200).json(user))
+//call all users
+exports.getAllUsers = (req, res, next) => {
+    User.findAll()
+        .then(users => res.status(200).json(users))
         .catch(error => res.status(400).json ({ error }));
 } 
+
+//call user who post publication
+exports.getUserOfPublication = (req, res, next) => {
+    User.findOne({ _id: publications.users-id })
+    .then(username => {
+        username = user.username
+    })
+    .catch(error => json({ error}));
+}

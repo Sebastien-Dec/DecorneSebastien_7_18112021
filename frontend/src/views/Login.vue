@@ -25,7 +25,7 @@ export default {
         }
     },
     methods: {
-        loginUser: function() {
+        loginUser() {
             axios.post('http://localhost:3000/api/auth/login', this.user, {
                 headers: {
                     "Content-Type": "application/json",
@@ -34,7 +34,8 @@ export default {
             .then(response => {
                 console.log('response',response.data);
                 localStorage.setItem('tokens', response.data.token);
-                localStorage.setItem('user_id', response.data.userId)
+                localStorage.setItem('user_id', response.data.userId);
+                localStorage.setItem('type', response.data.type);
                 document.location.href='http://localhost:8080/#/publications'
             })
             .catch(error => console.log(error.response.data)); 

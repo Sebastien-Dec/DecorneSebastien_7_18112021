@@ -16,20 +16,20 @@
 
 <script>
 import HeaderLogo from'./HeaderLogo.vue'
+import ImageUser from './ImageUser.vue'
 import ButtonLogin from './ButtonLogin.vue'
 import ButtonSignup from './ButtonSignup.vue'
 import ButtonNewPost from './ButtonNewPost.vue'
-import ImageUser from './ImageUser.vue'
 import ButtonLogout from './ButtonLogout.vue'
 
 export default {
     name: 'Header',
     components: {
       HeaderLogo,
+      ImageUser,
       ButtonLogin,
       ButtonSignup,
       ButtonNewPost,
-      ImageUser,
       ButtonLogout
     }
 }
